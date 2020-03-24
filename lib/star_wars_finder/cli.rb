@@ -31,6 +31,9 @@ class CLI
             self.display_categories
         end
     end
+    def get_search_params
+        
+    end
     class InvalidArgumentError < StandardError
         def message
             "Your value must be a number and the number must be

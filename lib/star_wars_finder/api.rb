@@ -8,8 +8,13 @@ class API
     def self.search_category(index)
         self.all_categories.each.with_index(1) do |key, i|
             if index == i
-                puts "#{key[1]}"
+                category = ("#{key[1]}")
             end
+            category
         end
+        
+    end
+    def self.search_all(category_url)
+        
     end
 end
