@@ -16,4 +16,23 @@ class Person
             puts "#{person.name}" if top_10_arr.include?(person.name)
         end
     end
+    def self.has_name?(name)
+        self.all.each do |person|
+            true if person.name == name
+        end
+    end
+    def self.search_all(name)
+        if name.class != String
+            puts "Entry is not valid"
+            CLI.display_characters
+        elsif self.has_name?(name) != true
+            puts "The name you listed is not available"
+            CLI.display_characters
+        else
+            search = self.all.find do |person|
+                person.name == name
+            end
+            CLI.display_search_res(search)
+        end
+    end
 end
