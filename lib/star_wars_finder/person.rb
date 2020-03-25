@@ -10,4 +10,10 @@ class Person
     def self.all
         @@all
     end
+    def self.top_10
+        top_10_arr = ["Chewbacca", "C-3PO", "R2-D2", "Palpatine", "Obi-Wan Kenobi", "Luke Skywalker", "Leia", "Yoda", "Han Solo", "Darth Vader"]
+        self.all.each do |person|
+            puts "#{person.name}" if top_10_arr.include?(person.name)
+        end
+    end
 end
