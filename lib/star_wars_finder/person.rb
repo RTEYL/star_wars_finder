@@ -1,15 +1,10 @@
 class Person
-    @@attrs = ""
-    def self.attrs(hash)
-        hash.each {|key| @@attrs += (":#{key.first}, ")}
-        @@attrs.split(", ").join(", ")
-        @@attrs
-    end
     @@all = Array.new
-    binding.pry
-    attr_accessor (@@attrs)
     def initialize(p_hash)
-        p_hash.each {|key, value| self.send("#{key}=", value)}
+        p_hash.each do |key, value|
+            self.instance_variable_set("@#{key}", value)
+            self.class.class_eval("def #{key};@#{key};end")
+        end
         @@all << self
     end
     def self.all

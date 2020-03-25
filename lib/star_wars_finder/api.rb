@@ -13,7 +13,6 @@ class API
         self.create_people_objects(people)
     end
     def self.create_people_objects(people)
-        Person.attrs(people.first)
         people.each {|hash| hash["name"] = Person.new(hash)}
     end
 end
