@@ -16,23 +16,25 @@ class Person
             puts "#{person.name}" if top_10_arr.include?(person.name)
         end
     end
-    def self.has_name?(name)
-        self.all.each do |person|
-            true if person.name == name
+    def self.search_all(name)
+        if name == "exit"
+            exit!
+        elsif name.to_f != 0.0
+            puts "Entry is not valid"
+            sleep(1.5)
+            CLI.display_characters
+        elsif self.has_name?(name) == false
+            puts "The name you listed is not available"
+            sleep(1.5)
+            CLI.display_characters
         end
     end
-    def self.search_all(name)
-        if name.class != String
-            puts "Entry is not valid"
-            CLI.display_characters
-        elsif self.has_name?(name) != true
-            puts "The name you listed is not available"
-            CLI.display_characters
-        else
-            search = self.all.find do |person|
-                person.name == name
+    def self.has_name?(name)
+        self.all.each do |person|
+            if person.name.downcase.match?(name)
+                CLI.display_search_res(person)
+            else false
             end
-            CLI.display_search_res(search)
         end
     end
 end
