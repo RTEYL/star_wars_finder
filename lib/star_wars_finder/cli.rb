@@ -16,6 +16,8 @@ class CLI
         Person.search_all(input)
     end
     def self.display_search_res(character)
-        puts "#{character}"
+        character.to_s.split.each do |key,value|
+            puts "#{key}: #{value}"
+        end
     end
 end
