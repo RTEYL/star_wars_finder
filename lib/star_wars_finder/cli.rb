@@ -11,13 +11,10 @@ class CLI
     def self.display_characters
         Person.top_10
         puts "\nselect a character in this top 10 list or search for a character by name"
-        puts "Type 'exit' to exit"
-        input = gets.strip.downcase
-        Person.search_all(input)
+        puts "Type 'exit' to exit"        
+        Person.search_all
     end
     def self.display_search_res(character)
-        character.to_s.split.each do |key,value|
-            puts "#{key}: #{value}"
-        end
+        character.callable_methods
     end
 end

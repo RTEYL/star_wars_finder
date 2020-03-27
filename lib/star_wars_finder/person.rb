@@ -16,7 +16,8 @@ class Person
             puts "#{person.name}" if top_10_arr.include?(person.name)
         end
     end
-    def self.search_all(name)
+    def self.search_all
+        name = gets.strip.downcase
         if name == "exit"
             exit!
         elsif name.to_f != 0.0
