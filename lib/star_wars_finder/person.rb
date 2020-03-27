@@ -39,11 +39,12 @@ class Person
     end
     def convert_mass
         @mass = mass.to_i * 2.205
-        "#{@mass.round(2)} lbs."
+        "#{@mass.round(2).to_i} lbs."
     end
     def convert_height
         inch = @height.to_i/2.54
         feet = inch/12
-        binding.pry
+        inch = feet.remainder(1) * 12
+        "#{feet.to_i} ft. #{inch.round} in."
     end
 end
