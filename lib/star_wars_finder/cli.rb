@@ -15,11 +15,11 @@ class CLI
 		Person.search_all
 	end
 	def self.display_search_res(character)
-		attr_list =
-		["name", "convert_height", "convert_mass", "hair_color", "eye_color", "birth_year", "species", "homeworld"]
+		attr_list = [
+			"name", "convert_height", "convert_mass", "hair_color", "eye_color", "birth_year", "convert_species", "homeworld"]
 		attr_list.each do |m|
 			i = character.methods.index { |sym| sym.to_s.match(m) }
-			puts "#{character.methods[i].to_s.gsub("convert_","")}: #{character.public_send(m)}"
+			puts "#{character.methods[i].to_s.gsub("convert_","")}: #{character.send(m)}"
 		end
 	end
 end
