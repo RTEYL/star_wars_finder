@@ -1,11 +1,12 @@
 class Person
+    attr_reader :name, :height, :mass, :hair_color, :eye_color, :birth_year, :species, :homeworld
     @@all = Array.new
     def initialize(p_hash)
         p_hash.each do |key, value|
-            self.instance_variable_set("@#{key}", value)
-            self.class.class_eval("def #{key};@#{key};end")
+            if self.class.instance_methods.include?(key.to_sym)
+                self.instance_variable_set("@#{key}", value)
+            end
         end
-        @species = API.create_species(species[0])
         @@all << self
     end
     def self.all
@@ -38,17 +39,18 @@ class Person
             end
         end
     end
-    def convert_mass
-        @mass = mass.to_i * 2.205
+    def mass
+        @mass = @mass.to_i * 2.205
         "#{@mass.round(2).to_i} lbs."
     end
-    def convert_height
+    def height
         inch = @height.to_i/2.54
         feet = inch/12
         inch = feet.remainder(1) * 12
         "#{feet.to_i} ft. #{inch.round} in."
     end
-    def convert_species
-        @species.name
+    def species
+        species = API.create_species(@species[0].gsub("https", "http"))
+        species.name
     end
 end

@@ -15,11 +15,8 @@ class CLI
 		Person.search_all
 	end
 	def self.display_search_res(character)
-		attr_list = [
-			"name", "convert_height", "convert_mass", "hair_color", "eye_color", "birth_year", "convert_species", "homeworld"]
-		attr_list.each do |m|
-			i = character.methods.index { |sym| sym.to_s.match(m) }
-			puts "#{character.methods[i].to_s.gsub("convert_","")}: #{character.send(m)}"
+		character.instance_variables.each.with_index do |m,i|
+			puts "#{character.instance_variables[i].to_s.gsub("@", "")}: #{character.send(m.to_s.gsub("@", ""))}"
 		end
 	end
 end
