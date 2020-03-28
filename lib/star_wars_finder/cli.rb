@@ -9,10 +9,10 @@ class CLI
 		puts "You will be able to see a list of characters and some info about them\n\n"
 	end
 	def self.display_characters
-		Person.top_10
+		Character.top_10
 		puts "\nselect a character in this top 10 list or search for a character by name"
 		puts "Type 'exit' to exit\n\n"
-		Person.search_all
+		Character.search_all
 	end
 	def self.display_search_res(character)
 		character.instance_variables.each.with_index do |m,i|

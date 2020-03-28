@@ -14,7 +14,7 @@ class API
         self.create_people_objects(people)
     end
     def self.create_people_objects(people)
-        people.each {|hash| hash["name"] = Person.new(hash)}
+        people.each {|hash| hash["name"] = Character.new(hash)}
     end
     def self.create_species(species)
         if species.class == String

@@ -1,4 +1,4 @@
-class Person
+class Character
     attr_reader :name, :height, :mass, :hair_color, :eye_color, :birth_year, :species, :homeworld
     @@all = Array.new
     def initialize(p_hash)
