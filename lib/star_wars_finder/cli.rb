@@ -11,12 +11,25 @@ class CLI
 	def self.display_characters
 		Person.top_10
 		puts "\nselect a character in this top 10 list or search for a character by name"
-		puts "Type 'exit' to exit"
+		puts "Type 'exit' to exit\n\n"
 		Person.search_all
 	end
 	def self.display_search_res(character)
 		character.instance_variables.each.with_index do |m,i|
 			puts "#{character.instance_variables[i].to_s.gsub("@", "")}: #{character.send(m.to_s.gsub("@", ""))}"
+		end
+		self.exit?
+	end
+	def self.exit?
+		puts "\nType 'exit' to exit or 'back' to search again."
+		input = gets.strip.downcase
+		if input == 'back'
+			self.display_characters
+		elsif input != 'exit'
+			puts "invalid choice"
+			self.exit?
+		else
+			exit!
 		end
 	end
 end
