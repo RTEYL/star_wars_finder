@@ -23,4 +23,11 @@ class API
             response["name"] = Species.new(response)
         end
     end
+    def self.create_homeworld(planet)
+        if planet.class == String
+            planet.gsub!("https", "http")
+            response = HTTParty.get("#{planet}")
+            response["name"] = Planet.new(response)
+        end
+    end
 end
