@@ -21,12 +21,12 @@ class Person
         name = gets.strip.downcase
         if name == "exit"
             exit!
-        elsif name.to_f != 0.0
-            puts "Entry is not valid"
-            sleep(1.5)
-            CLI.display_characters
         elsif self.has_name?(name) == false
             puts "The name you listed is not available"
+            sleep(1.5)
+            CLI.display_characters
+        else
+            puts "Entry is not valid"
             sleep(1.5)
             CLI.display_characters
         end
@@ -50,7 +50,15 @@ class Person
         "#{feet.to_i} ft. #{inch.round} in."
     end
     def species
-        species = API.create_species(@species[0].gsub("https", "http"))
-        species.name
+        if @species !=[]
+            species = API.create_species(@species[0])
+            species.name
+        else
+            @species = "unknown"
+        end
+    end
+    def homeworld
+        homeworld = API.create_homeworld(@homeworld)
+        homeworld.name
     end
 end
