@@ -5,6 +5,7 @@ class Person
             self.instance_variable_set("@#{key}", value)
             self.class.class_eval("def #{key};@#{key};end")
         end
+        @species = API.create_species(species[0])
         @@all << self
     end
     def self.all
@@ -46,5 +47,8 @@ class Person
         feet = inch/12
         inch = feet.remainder(1) * 12
         "#{feet.to_i} ft. #{inch.round} in."
+    end
+    def convert_species
+        @species.name
     end
 end

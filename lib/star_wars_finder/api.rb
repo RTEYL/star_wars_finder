@@ -16,4 +16,11 @@ class API
     def self.create_people_objects(people)
         people.each {|hash| hash["name"] = Person.new(hash)}
     end
+    def self.create_species(species)
+        if species.class == String
+            species.gsub!("https", "http")
+            response = HTTParty.get("#{species}")
+            response["name"] = Species.new(response)
+        end
+    end
 end
