@@ -9,7 +9,7 @@ Then execute:
 
     $ bin/run
 
-`** gem has not been published to rubygems at this moment
+** gem has not been published to rubygems at this moment **
 
 Add this line to your application's Gemfile:
 
