@@ -39,8 +39,8 @@ class Character
         end
     end
     def mass
-        @mass = @mass.to_i * 2.205
-        "#{@mass.round(2).to_i} lbs."
+        mass = @mass.to_i * 2.205
+        "#{mass.round(2).to_i} lbs."
     end
     def height
         feet = (@height.to_i/2.54)/12
