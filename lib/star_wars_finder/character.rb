@@ -21,13 +21,13 @@ class Character
         name = gets.strip.downcase
         if name == "exit"
             exit!
-        elsif self.has_name?(name) == false
+        elsif self.has_name?(name) == false && name.to_i == 0.0
             puts "The name you listed is not available"
-            sleep(1.5)
+            sleep(1.25)
             CLI.display_characters
         else
             puts "Entry is not valid"
-            sleep(1.5)
+            sleep(1.25)
             CLI.display_characters
         end
     end
@@ -35,7 +35,7 @@ class Character
         self.all.each do |person|
             if person.name.downcase.match?(name)
                 CLI.display_search_res(person)
-            else false
+            else return false
             end
         end
     end

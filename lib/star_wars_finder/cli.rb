@@ -21,7 +21,7 @@ class CLI
 		self.exit?
 	end
 	def self.exit?
-		puts "\nSearch again? y/n)"
+		puts "\nSearch again? y/n"
 		input = gets.strip.downcase
 		if input == 'y'
 			self.display_characters
