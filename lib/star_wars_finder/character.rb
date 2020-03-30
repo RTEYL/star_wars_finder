@@ -44,8 +44,7 @@ class Character
         "#{@mass.round(2).to_i} lbs."
     end
     def height
-        inch = @height.to_i/2.54
-        feet = inch/12
+        feet = (@height.to_i/2.54)/12
         inch = feet.remainder(1) * 12
         "#{feet.to_i} ft. #{inch.round} in."
     end
