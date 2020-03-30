@@ -17,8 +17,7 @@ class Character
         ["Chewbacca", "C-3PO", "R2-D2", "Palpatine", "Obi-Wan Kenobi", "Luke Skywalker", "Leia", "Yoda", "Han Solo", "Darth Vader"]
         top_10_arr.sort.each { |person| puts "#{person}" }
     end
-    def self.search_all
-        name = gets.strip.downcase
+    def self.search_all(name)
         if name == "exit"
             exit!
         elsif self.has_name?(name) == false && name.to_i == 0.0
@@ -35,7 +34,7 @@ class Character
         self.all.each do |person|
             if person.name.downcase.match?(name)
                 CLI.display_search_res(person)
-            else return false
+            else false
             end
         end
     end
@@ -49,15 +48,21 @@ class Character
         "#{feet.to_i} ft. #{inch.round} in."
     end
     def species
-        if @species !=[]
-            species = API.create_species(@species[0])
-            species.name
+        if @species.class == Species
+            @species.name
+        elsif @species != []
+            @species = API.create_species(@species[0])
+            @species.name
         else
             @species = "unknown"
         end
     end
     def homeworld
-        homeworld = API.create_homeworld(@homeworld)
-        homeworld.name
+        if @homeworld.class != Planet
+            @homeworld = API.create_homeworld(@homeworld)
+            @homeworld.name
+        else
+            @homeworld.name
+        end
     end
 end

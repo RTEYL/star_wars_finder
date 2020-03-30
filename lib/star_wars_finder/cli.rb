@@ -12,7 +12,8 @@ class CLI
 		Character.top_10
 		puts "\nSelect a character in this top 10 list or,\nsearch for a character by name"
 		puts "Type 'exit' to exit\n\n"
-		Character.search_all
+		name = gets.strip.downcase
+		Character.search_all(name)
 	end
 	def self.display_search_res(character)
 		character.instance_variables.each.with_index do |m,i|
