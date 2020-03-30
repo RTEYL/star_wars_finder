@@ -10,7 +10,7 @@ class CLI
 	end
 	def self.display_characters
 		Character.top_10
-		puts "\nselect a character in this top 10 list or search for a character by name"
+		puts "\nSelect a character in this top 10 list or,\nsearch for a character by name"
 		puts "Type 'exit' to exit\n\n"
 		Character.search_all
 	end
@@ -21,11 +21,11 @@ class CLI
 		self.exit?
 	end
 	def self.exit?
-		puts "\nType 'exit' to exit or 'back' to search again."
+		puts "\nSearch again? y/n)"
 		input = gets.strip.downcase
-		if input == 'back'
+		if input == 'y'
 			self.display_characters
-		elsif input != 'exit'
+		elsif input != 'n'
 			puts "invalid choice"
 			self.exit?
 		else
