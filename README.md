@@ -1,8 +1,6 @@
 # StarWarsFinder
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/star_wars_finder`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome to Welcome to my Star Wars Finder gem. Using an API to collect character data you will be able to seach for a Star Wars character and get information about it. At this moment a character is only searchable by name however later updates will include search by planets and search by species.
 
 ## Installation
 
@@ -22,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Put `bin/run` in the command line and you'll be prompted with some top character choices to search by or enter your own search term. The search input is dynamic in that your term doesn't need to exactly match a characters name `chew => Chewbacca`, `luke => Luke Skywalker` etc..
 
 ## Development
 
