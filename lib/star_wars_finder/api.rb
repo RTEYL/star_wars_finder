@@ -1,8 +1,5 @@
 class API
-    def self.start
-        self.get_people
-    end
-    def self.get_people
+    def self.get_characters
         puts "\nLoading...\n\n"
         people = Array.new
         i = 1
