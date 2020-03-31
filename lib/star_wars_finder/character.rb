@@ -17,19 +17,6 @@ class Character
         ["Chewbacca", "C-3PO", "R2-D2", "Palpatine", "Obi-Wan Kenobi", "Luke Skywalker", "Leia", "Yoda", "Han Solo", "Darth Vader"]
         top_10_arr.sort.each { |person| puts "#{person}" }
     end
-    def self.search_all(name)
-        if name == "exit"
-            exit!
-        elsif self.has_name?(name) == false && name.to_i == 0.0
-            puts "The name you listed is not available"
-            sleep(1.25)
-            CLI.display_characters
-        else
-            puts "Entry is not valid"
-            sleep(1.25)
-            CLI.display_characters
-        end
-    end
     def self.has_name?(name)
         self.all.each do |person|
             if person.name.downcase.match?(name)

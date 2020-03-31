@@ -13,7 +13,17 @@ class CLI
 		puts "\nSelect a character in this top 10 list or,\nsearch for a character by name"
 		puts "Type 'exit' to exit\n\n"
 		name = gets.strip.downcase
-		Character.search_all(name)
+		if name == "exit"
+			exit!
+		elsif Character.has_name?(name) == false && name.to_i == 0.0
+			puts "The name you listed is not available"
+			sleep(1.25)
+			self.display_characters
+		else
+			puts "Entry is not valid"
+			sleep(1.25)
+			self.display_characters
+		end
 	end
 	def self.display_search_res(character)
 		character.instance_variables.each.with_index do |m,i|
