@@ -3,13 +3,6 @@
 Welcome to Welcome to my Star Wars Finder gem. Using an API to collect character data you will be able to seach for a Star Wars character and get information about it. At this moment a character is only searchable by name however later updates will include search by planets and search by species.
 
 ## Installation
-Fork/Clone this lab
-
-Then execute:
-
-    $ bin/run
-
-** gem has not been published to rubygems at this moment **
 
 Add this line to your application's Gemfile:
 
