@@ -4,7 +4,7 @@ Gem::Specification.new do |spec|
   spec.name          = "star_wars_finder"
   spec.version       = StarWarsFinder::VERSION
   spec.authors       = ["RTEYL"]
-  spec.email         = ["tyler-w-jones@hotmail.com"]
+  spec.email         = ["rteyl1690@gmail.com"]
 
   spec.summary       = %q{CLI to seach for a Star Wars character and get information about it.}
   spec.description   = %q{Using an API to collect character data you will be able to seach for a Star Wars character and get information about it. At this moment a character is only searchable by name however later updates will include search by planets and search by species.}
